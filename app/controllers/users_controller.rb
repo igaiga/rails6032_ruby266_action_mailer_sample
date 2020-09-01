@@ -26,6 +26,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    # メール送信サンプル
+    UserMailer.with(to: "iga@example.com", name: "igaiga").welcome.deliver_now
+    # UserMailer.with(to: @user.email, name: @user.name).welcome.deliver_now
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
