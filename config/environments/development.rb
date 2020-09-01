@@ -1,5 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.delivery_method = :file
+  # config.action_mailer.file_settings = { location: Rails.root.join('log/mails') } # ファイル保存パスの指定
+  # 指定しないとデフォルトでは tmp/mails 以下に保存される
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
